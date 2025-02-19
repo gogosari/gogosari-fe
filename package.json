@@ -2,11 +2,13 @@
   "name": "alryujuka-fe",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit -p ./tsconfig.json"
   },
   "dependencies": {
     "next": "15.2.0-canary.65",
@@ -26,6 +28,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.5.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "lefthook": "^1.10.10"
   }
 }
