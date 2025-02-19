@@ -11,6 +11,8 @@
     "type-check": "tsc --noEmit -p ./tsconfig.json"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.7",
+    "@tanstack/react-query-devtools": "^5.66.7",
     "next": "15.2.0-canary.65",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
