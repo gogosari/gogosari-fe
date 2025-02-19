@@ -1,0 +1,52 @@
+[
+  {
+    "name": "⚙ Settings",
+    "color": "E3DEDE",
+    "description": "개발 환경 세팅"
+  },
+  {
+    "name": "✨ Feature",
+    "color": "FFFADE",
+    "description": "기능 개발"
+  },
+  {
+    "name": "📝 Docs",
+    "color": "FFFFFF",
+    "description": "문서 작성 및 수정"
+  },
+  {
+    "name": "🎨 Design",
+    "color": "5A66A2",
+    "description": "스타일링 관련"
+  },
+  {
+    "name": "🐛 Bug",
+    "color": "FF774A",
+    "description": "버그"
+  },
+  {
+    "name": "🔨 Fix",
+    "color": "BFB5A1",
+    "description": "버그"
+  },
+  {
+    "name": "🚀 Deploy",
+    "color": "C2E0C6",
+    "description": "배포 관련"
+  },
+  {
+    "name": "♻️ Refactor",
+    "color": "FFB850",
+    "description": "코드 리팩토링"
+  },
+  {
+    "name": "📬 API",
+    "color": "D4C5F9",
+    "description": "서버 API 통신"
+  },
+  {
+    "name": "🧪 Test",
+    "color": "F3DD9F",
+    "description": "코드 테스트 관련"
+  }
+]
