@@ -30,7 +30,7 @@ export default function ExperienceStep({ onNext }: Props) {
   return (
     <div className="relative h-dvh">
       <OnboardingTitle>
-        고사리를 직접 <br />캐 본적 인?
+        고사리를 직접 <br />따 본적 인?
       </OnboardingTitle>
       <OnboardingRadio options={options} option={option} setOption={setOption} />
       <SkipButton className="mt-3.5" />

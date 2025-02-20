@@ -12,7 +12,7 @@ export type ResultsType = Record<'gosary' | 'explorer' | 'beginner', ResultModel
 export const results: ResultsType = {
   gosary: {
     title: '당신은 고사리 그 자체이우다',
-    subtitle: '혹시..고사리만 캐러 다니시는거 아니우꽈?',
+    subtitle: '혹시..고사리만 따러 다니시는거 아니우꽈?',
     type: ['마구잡이형', '강함', '강함', '높음'],
     image: '/images/gosary.png',
   },
