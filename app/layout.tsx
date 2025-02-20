@@ -1,4 +1,5 @@
 import './globals.css'
+import './animation.css'
 
 import localFont from 'next/font/local'
 import { PublicEnvScript } from 'next-runtime-env'
