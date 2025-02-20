@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { PublicEnvScript } from 'next-runtime-env'
 import { PropsWithChildren } from 'react'
 
+import { Toaster } from '@/shared/components/ui/sonner'
 import QueryProvider from '@/shared/query/provider'
 
 const pretendard = localFont({
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <div className="bg-background relative mx-auto h-dvh w-full max-w-screen-sm overflow-x-hidden antialiased sm:w-[390px]">
             {children}
           </div>
+          <Toaster />
         </QueryProvider>
       </body>
     </html>
