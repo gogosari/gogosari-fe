@@ -7,6 +7,7 @@ import bugImage2 from '@/public/images/bug-2.png'
 import bugImage3 from '@/public/images/bug-3.png'
 import bugImage4 from '@/public/images/bug-4.png'
 
+import { BUG_1, BUG_2, BUG_3, BUG_4 } from '../../constants'
 import OnboardingButtons from '../buttons/buttons'
 import SkipButton from '../buttons/skip-button'
 import OnboardingRadio from '../radio'
@@ -17,10 +18,10 @@ interface Props {
 }
 
 const options = [
-  { src: bugImage1, title: '도망간다!' },
-  { src: bugImage2, title: '애완 벌레로 키운다!' },
-  { src: bugImage3, title: '신경 안 쓴다!' },
-  { src: bugImage4, title: '좋은 곳에 보내준다!' },
+  { src: bugImage1, title: BUG_1 },
+  { src: bugImage2, title: BUG_2 },
+  { src: bugImage3, title: BUG_3 },
+  { src: bugImage4, title: BUG_4 },
 ]
 
 export default function BugStep({ onNext }: Props) {

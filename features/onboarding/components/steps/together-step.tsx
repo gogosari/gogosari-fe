@@ -7,6 +7,7 @@ import togetherImage2 from '@/public/images/together-2.png'
 import togetherImage3 from '@/public/images/together-3.png'
 import togetherImage4 from '@/public/images/together-4.png'
 
+import { TOGETHER_1, TOGETHER_2, TOGETHER_3, TOGETHER_4 } from '../../constants'
 import OnboardingButtons from '../buttons/buttons'
 import SkipButton from '../buttons/skip-button'
 import OnboardingRadio from '../radio'
@@ -17,10 +18,10 @@ interface Props {
 }
 
 const options = [
-  { src: togetherImage1, title: '혼자!' },
-  { src: togetherImage2, title: '가족과 함께!' },
-  { src: togetherImage3, title: '연인과 함께!' },
-  { src: togetherImage4, title: '친구와 함께!' },
+  { src: togetherImage1, title: TOGETHER_1 },
+  { src: togetherImage2, title: TOGETHER_2 },
+  { src: togetherImage3, title: TOGETHER_3 },
+  { src: togetherImage4, title: TOGETHER_4 },
 ]
 
 export default function TogetherStep({ onNext }: Props) {
