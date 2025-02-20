@@ -4,24 +4,50 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { Map } from 'react-kakao-maps-sdk'
 
-import RoadImage1 from '@/public/images/road-1.png'
-import RoadImage2 from '@/public/images/road-2.png'
-import RoadImage3 from '@/public/images/road-3.png'
-import RoadImage4 from '@/public/images/road-4.png'
+import categoryImage1 from '@/public/images/category-1.png'
+import categoryImage2 from '@/public/images/category-2.png'
+import categoryImage3 from '@/public/images/category-3.png'
+import categoryImage4 from '@/public/images/category-4.png'
+import categoryImage5 from '@/public/images/category-5.png'
+import categoryImage6 from '@/public/images/category-6.png'
+import categoryImage7 from '@/public/images/category-7.png'
+import categoryImage8 from '@/public/images/category-8.png'
+import roadImage1 from '@/public/images/road-1.png'
+import roadImage2 from '@/public/images/road-2.png'
+import roadImage3 from '@/public/images/road-3.png'
+import roadImage4 from '@/public/images/road-4.png'
 import Header from '@/shared/components/common/header'
 import { Label } from '@/shared/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group'
 import { cn } from '@/shared/lib/utils'
 
 const roadOptions = [
-  { title: '흙길', src: RoadImage1 },
-  { title: '자갈밭', src: RoadImage2 },
-  { title: '숲길', src: RoadImage3 },
-  { title: '비포장', src: RoadImage4 },
+  { title: '흙길', src: roadImage1 },
+  { title: '자갈밭', src: roadImage2 },
+  { title: '숲길', src: roadImage3 },
+  { title: '비포장', src: roadImage4 },
+]
+
+const categoryOptions = [
+  { title: '유료채집', src: categoryImage1 },
+  { title: '무료채집', src: categoryImage2 },
+  { title: '공동채집', src: categoryImage3 },
+  { title: '한적한', src: categoryImage4 },
+  { title: '초보자용', src: categoryImage5 },
+  { title: '중급자용', src: categoryImage6 },
+  { title: '전문가용', src: categoryImage7 },
+  { title: '벌레많음', src: categoryImage8 },
 ]
 
 export default function LocationInfoPage() {
   const [roadOption, setRoadOption] = useState('')
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+
+  const handleClickCategory = (title: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(title) ? prev.filter((item) => item !== title) : [...prev, title],
+    )
+  }
 
   return (
     <>
@@ -63,6 +89,25 @@ export default function LocationInfoPage() {
         </section>
         <section>
           <h2 className="mb-1 font-bold">고사리 카테고리</h2>
+          <div className="grid grid-cols-4 gap-1">
+            {categoryOptions.map((item) => (
+              <div
+                key={item.title}
+                onClick={() => handleClickCategory(item.title)}
+                className={cn(
+                  'cursor-pointer rounded-[6px] border-1',
+                  selectedCategories.includes(item.title)
+                    ? 'border-primary bg-primary/10'
+                    : 'border-primary',
+                )}
+              >
+                <div className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center text-center text-lg font-medium">
+                  <Image src={item.src} alt="" priority width={32} height={32} />
+                  <p className="text-base">{item.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       </div>
     </>
