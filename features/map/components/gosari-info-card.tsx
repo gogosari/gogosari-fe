@@ -13,7 +13,7 @@ export default function GosariInfoCard() {
             <span>고사리 위치</span>
             <MarkerIcon className="text-primary-normal" />
           </div>
-          <span className="text-xs font-semibold">제주 특별자치도 제주시 노형동 2023동</span>
+          <span className="text-xs font-medium">제주 특별자치도 제주시 노형동 2023동</span>
         </div>
         <div className="flex flex-col">
           <span className="text-primary-normal text-caption font-bold">대표 키워드</span>
