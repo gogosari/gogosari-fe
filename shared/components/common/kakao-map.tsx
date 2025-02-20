@@ -1,28 +1,20 @@
-'use client'
-
+import Script from 'next/script'
 import { env } from 'next-runtime-env'
-import { useEffect, useState } from 'react'
-import { Map } from 'react-kakao-maps-sdk'
+import { Map, MapProps } from 'react-kakao-maps-sdk'
+import { twMerge } from 'tailwind-merge'
 
-export default function KakaoMap() {
-  const [scriptLoad, setScriptLoad] = useState<boolean>(false)
+const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
+const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`
 
-  useEffect(() => {
-    const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
-    const script: HTMLScriptElement = document.createElement('script')
+type KakaoMapProps = {} & MapProps
 
-    script.async = true
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`
-    document.head.appendChild(script)
+export default function KakaoMap({ className: classNameProp, ...rest }: KakaoMapProps) {
+  const className = twMerge('h-full w-full', classNameProp)
 
-    script.addEventListener('load', () => {
-      setScriptLoad(true)
-    })
-  }, [])
-
-  if (!scriptLoad) {
-    return <span>loading...</span>
-  }
-
-  return <Map center={{ lat: 33.450701, lng: 126.570667 }} className="h-full w-full" level={3} />
+  return (
+    <>
+      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
+      <Map className={className} {...rest} />
+    </>
+  )
 }

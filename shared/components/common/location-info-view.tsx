@@ -1,10 +1,10 @@
 import { DialogTitle } from '@radix-ui/react-dialog'
-import { Map } from 'react-kakao-maps-sdk'
 
 import HeartIcon from '@/public/svgs/heart-outline.svg'
 
 import { Button } from '../ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
+import KakaoMap from './kakao-map'
 
 export default function LocationInfoView() {
   return (
@@ -18,9 +18,9 @@ export default function LocationInfoView() {
         className="mx-auto h-full w-full max-w-screen-sm gap-[7px] rounded-t-[10px] border-none sm:w-[390px]"
       >
         <DialogTitle className="hidden"></DialogTitle>
-        <Map
+        <KakaoMap
           center={{ lat: 33.450701, lng: 126.570667 }}
-          className="absolute top-14 h-full w-full"
+          className="absolute top-14"
           level={3}
         />
         <div className="absolute bottom-0 z-50 flex w-full flex-col items-center gap-2.5 bg-white px-4 pt-5 pb-10">
