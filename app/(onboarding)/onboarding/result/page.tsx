@@ -8,6 +8,8 @@ import OnboardingResultTypeItem from '@/features/onboarding/components/result-ty
 import { results, ResultsType } from '@/features/onboarding/results'
 import { Button } from '@/shared/components/ui/button'
 
+export const dynamic = 'force-dynamic'
+
 export default function OnboardingResultPage() {
   const searchParams = useSearchParams()
   const resultType = searchParams.get('type') || 'beginner'
