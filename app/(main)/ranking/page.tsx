@@ -1,3 +1,10 @@
+import Header from '@/shared/components/common/header'
+
 export default function RankingPage() {
-  return <div className="flex h-full w-full items-center justify-center">Ranking Page</div>
+  return (
+    <>
+      <Header>채집왕</Header>
+      <div className="px-5 pb-[80px]"></div>
+    </>
+  )
 }
