@@ -1,6 +1,7 @@
+'use client'
+
 import Image from 'next/image'
-import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import { Button } from '@/shared/components/ui/button'
 
@@ -8,8 +9,14 @@ import { results, ResultsType } from '../results'
 import OnboardingResultTypeItem from './result-type-item'
 
 export default function OnboardingResult() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const resultType = searchParams.get('type') || 'beginner'
+
+  const handleClick = () => {
+    localStorage.setItem('onboardingCompleted', 'true')
+    router.push('/')
+  }
 
   const { title, subtitle, type, image } = results[resultType as unknown as keyof ResultsType]
 
@@ -37,8 +44,8 @@ export default function OnboardingResult() {
         </li>
       </ul>
 
-      <Button asChild size="full" className="absolute right-0 bottom-4 left-0">
-        <Link href="/">고고사리 시작하기</Link>
+      <Button size="full" className="absolute right-0 bottom-4 left-0" onClick={handleClick}>
+        고고사리 시작하기
       </Button>
     </div>
   )
