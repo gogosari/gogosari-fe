@@ -7,7 +7,10 @@ import { Button } from '@/shared/components/ui/button'
 
 export default function OnboardingPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center text-center">
+    <div
+      className="flex min-h-screen flex-col items-center justify-center text-center"
+      data-animate
+    >
       <Image
         src={campingImage}
         alt="캠핑"

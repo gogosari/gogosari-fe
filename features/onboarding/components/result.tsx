@@ -14,7 +14,7 @@ export default function OnboardingResult() {
   const { title, subtitle, type, image } = results[resultType as unknown as keyof ResultsType]
 
   return (
-    <div className="relative flex h-dvh flex-col items-center">
+    <div className="relative flex h-dvh flex-col items-center" data-animate>
       <div className="pt-[46px] text-center">
         <p className="text-sm font-medium">축하함서양!</p>
         <h1 className="py-1.5 text-2xl font-bold">{title}</h1>
