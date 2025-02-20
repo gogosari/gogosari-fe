@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { Map } from 'react-kakao-maps-sdk'
 
 import categoryImage1 from '@/public/images/category-1.png'
 import categoryImage2 from '@/public/images/category-2.png'
@@ -18,6 +17,7 @@ import roadImage3 from '@/public/images/road-3.png'
 import roadImage4 from '@/public/images/road-4.png'
 import CameraIcon from '@/public/svgs/camera.svg'
 import Header from '@/shared/components/common/header'
+import KakaoMap from '@/shared/components/common/kakao-map'
 import { Button } from '@/shared/components/ui/button'
 import { Label } from '@/shared/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group'
@@ -55,7 +55,11 @@ export default function LocationInfoPage() {
     <>
       <Header>위치제보</Header>
       <div className="flex flex-col gap-6 px-5 pb-[20px]">
-        <Map center={{ lat: 33.450701, lng: 126.570667 }} className="h-[100px] w-full" level={3} />
+        <KakaoMap
+          center={{ lat: 33.450701, lng: 126.570667 }}
+          className="h-[100px] w-full"
+          level={3}
+        />
         <section>
           <h2 className="mb-1 font-bold">고사리 출현 위치</h2>
           <div className="border-primary rounded-[8px] border py-2 text-center font-medium">
