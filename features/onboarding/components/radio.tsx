@@ -38,7 +38,7 @@ export default function OnboardingRadio({ options, option, setOption }: Props) {
             className="flex h-[180px] cursor-pointer flex-col content-center items-center p-4 text-center text-lg font-medium"
           >
             <Image src={item.src} alt="" priority={true} width={120} height={109} />
-            <p>{item.title}</p>
+            <p className="text-base">{item.title}</p>
           </Label>
         </div>
       ))}
