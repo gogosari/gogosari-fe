@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge'
 
 type TabBarItemProps = PropsWithChildren<{
   label: string
-  route: string
+  route: string | null
 }>
 
 export default function TabBarItem({ label, route, children }: TabBarItemProps) {
@@ -18,10 +18,19 @@ export default function TabBarItem({ label, route, children }: TabBarItemProps) 
     pathname === route ? 'text-primary-normal' : 'text-black',
   )
 
+  if (!route) {
+    return (
+      <div className={menuClass}>
+        {children}
+        {label && <span className="text-caption font-normal">{label}</span>}
+      </div>
+    )
+  }
+
   return (
     <Link className={menuClass} href={route}>
       {children}
-      <span className="text-caption font-normal">{label}</span>
+      {label && <span className="text-caption font-normal">{label}</span>}
     </Link>
   )
 }

@@ -1,14 +1,14 @@
 import DocumentIcon from '@/public/svgs/document-outline.svg'
-import HeartIcon from '@/public/svgs/heart-outline.svg'
 import HomeIcon from '@/public/svgs/home-outline.svg'
 import PeopleIcon from '@/public/svgs/people-outline.svg'
 import RankingIcon from '@/public/svgs/ranking-outline.svg'
 
+import LocationInfoView from './location-info-view'
 import TabBarItem from './tab-bar-item'
 
 const menus = [
   { id: 1, NavIcon: HomeIcon, label: '홈', route: '/' },
-  { id: 2, NavIcon: HeartIcon, label: '위치제보', route: '/report-location' },
+  { id: 2, NavIcon: LocationInfoView, label: '', route: null },
   { id: 3, NavIcon: DocumentIcon, label: '커뮤니티', route: '/community' },
   { id: 4, NavIcon: RankingIcon, label: '채집왕', route: '/ranking' },
   { id: 5, NavIcon: PeopleIcon, label: '마이', route: '/my' },
