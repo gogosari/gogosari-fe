@@ -1,41 +1,25 @@
 import { useState } from 'react'
 
-import NavDurupIcon from '@/public/svgs/nav-durup.svg'
-import NavGosariIcon from '@/public/svgs/nav-gosari.svg'
-import NavKkungmanungIcon from '@/public/svgs/nav-kkungmanung.svg'
 import ScrollLinked from '@/shared/components/common/scroll-linked'
 
+import { useCategory } from '../hooks/use-category'
 import ScrollOptionItem from './scroll-option-item'
 
-const optionItems = [
-  { id: 1, name: '고사리', Emoji: NavGosariIcon },
-  { id: 2, name: '두릅', Emoji: NavDurupIcon },
-  { id: 3, name: '꿩마농', Emoji: NavKkungmanungIcon },
-  { id: 4, name: '취나물', Emoji: NavGosariIcon },
-  { id: 5, name: '냉이', Emoji: NavGosariIcon },
-  { id: 6, name: '근거리' },
-  { id: 7, name: '찜' },
-]
-
 export default function ScrollOption() {
-  const [selectedNames, setSelectedNames] = useState<string[]>(['고사리'])
+  const [selectedName, setSelectedName] = useState(1)
 
-  const updateSelectName = (name: string) => {
-    setSelectedNames((prev) =>
-      prev.includes(name) ? prev.filter((item) => item !== name) : [...prev, name],
-    )
-  }
+  const { data } = useCategory()
 
   return (
     <div className="absolute top-[calc(100%+12px)] mx-auto h-full w-full max-w-[600px] overflow-hidden">
       <ScrollLinked>
-        {optionItems.map(({ id, name, Emoji }) => (
+        {data?.map(({ id, name, code }) => (
           <ScrollOptionItem
             key={id}
-            onSelect={updateSelectName}
+            onSelect={() => setSelectedName(id)}
             optionName={name}
-            selected={selectedNames.includes(name)}
-            Emoji={Emoji}
+            selected={selectedName === id}
+            emoji={code}
           />
         ))}
         <div className="pr-12" />
