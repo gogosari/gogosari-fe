@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { resolve } from 'path'
 
 const nextConfig: NextConfig = {
   webpack(config) {
@@ -6,6 +7,7 @@ const nextConfig: NextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
+    config.resolve.alias['@'] = resolve(__dirname)
 
     return config
   },
