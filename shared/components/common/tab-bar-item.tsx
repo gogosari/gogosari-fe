@@ -13,10 +13,9 @@ type TabBarItemProps = PropsWithChildren<{
 export default function TabBarItem({ label, route, children }: TabBarItemProps) {
   const pathname = usePathname()
 
-  /** @TODO 메인 컬러 정의 필요 */
   const menuClass = twMerge(
     'flex w-10 cursor-pointer flex-col items-center gap-1',
-    pathname === route ? 'text-[#00D492]' : 'text-black',
+    pathname === route ? 'text-primary-normal' : 'text-black',
   )
 
   return (
