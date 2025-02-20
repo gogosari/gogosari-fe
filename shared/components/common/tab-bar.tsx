@@ -18,7 +18,7 @@ export default function TabBar() {
   return (
     <nav
       aria-label="Main TabBar"
-      className="absolute bottom-0 flex w-full items-center justify-between px-[22.5px] py-2 shadow-2xl"
+      className="absolute bottom-0 z-50 flex w-full items-center justify-between bg-white px-[22.5px] py-2 shadow-2xl"
     >
       {menus.map(({ NavIcon, id, label, route }) => (
         <TabBarItem key={id} label={label} route={route}>

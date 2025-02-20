@@ -15,9 +15,9 @@ const pretendard = localFont({
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko" className={pretendard.variable}>
-      <body className="bg-gray-100 font-sans">
+      <body className="bg-gray-100 font-sans antialiased">
         <QueryProvider>
-          <div className="bg-background relative mx-auto h-dvh w-full max-w-screen-sm antialiased sm:w-[390px]">
+          <div className="bg-background relative mx-auto h-dvh w-full max-w-screen-sm overflow-x-hidden antialiased sm:w-[390px]">
             {children}
           </div>
         </QueryProvider>
