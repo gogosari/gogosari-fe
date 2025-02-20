@@ -18,7 +18,7 @@ const optionItems = [
 ]
 
 export default function ScrollOption() {
-  const [selectedNames, setSelectedNames] = useState<string[]>([])
+  const [selectedNames, setSelectedNames] = useState<string[]>(['고사리'])
 
   const updateSelectName = (name: string) => {
     setSelectedNames((prev) =>
