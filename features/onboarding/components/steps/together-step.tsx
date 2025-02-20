@@ -31,7 +31,7 @@ export default function TogetherStep({ onNext }: Props) {
     <div className="relative h-dvh">
       <OnboardingTitle>
         누구와 함께 고사리를 <br />
-        같이 캐젠?
+        같이 따젠?
       </OnboardingTitle>
       <OnboardingRadio options={options} option={option} setOption={setOption} />
       <SkipButton className="mt-3.5" />

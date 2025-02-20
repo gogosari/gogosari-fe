@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import shapeImage1 from '@/public/images/shape-1.png'
-import shapeImage2 from '@/public/images/shape-2.webp'
+import shapeImage2 from '@/public/images/shape-2.png'
 import shapeImage3 from '@/public/images/shape-3.png'
 import shapeImage4 from '@/public/images/shape-4.png'
 
