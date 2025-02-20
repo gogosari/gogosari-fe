@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from 'next/image'
 
+import CheckIcon from '@/public/svgs/check.svg'
 import { Label } from '@/shared/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group'
 import { cn } from '@/shared/lib/utils'
@@ -36,7 +37,11 @@ export default function OnboardingImageRadio({ options, option, setOption }: Pro
           <Label htmlFor={item.label} className="block h-[180px] w-full cursor-pointer rounded-xl">
             <div className="relative h-full w-full">
               <Image src={item.src} alt="" priority={true} fill className="object-cover" />
-              {item.label === option && <div className="bg-primary/50 absolute inset-0 z-10"></div>}
+              {item.label === option && (
+                <div className="bg-primary/50 absolute inset-0 z-10 flex items-center justify-center">
+                  <CheckIcon />
+                </div>
+              )}
             </div>
           </Label>
         </div>

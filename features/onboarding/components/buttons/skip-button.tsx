@@ -25,7 +25,10 @@ export default function SkipButton({ className }: Props) {
     <Button
       variant="link"
       size="full"
-      className={cn('cursor-pointer text-center text-xs font-medium underline', className)}
+      className={cn(
+        'cursor-pointer text-center text-xs font-medium text-gray-500 underline',
+        className,
+      )}
       onClick={handleClickSkip}
     >
       서비스부터 둘러보고 싶어요.
