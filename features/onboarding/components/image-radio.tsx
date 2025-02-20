@@ -6,7 +6,7 @@ import { cn } from '@/shared/lib/utils'
 
 interface OptionsModel {
   src: string | StaticImageData
-  title: string
+  label: string
 }
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
   setOption: (option: string) => void
 }
 
-export default function OnboardingRadio({ options, option, setOption }: Props) {
+export default function OnboardingImageRadio({ options, option, setOption }: Props) {
   return (
     <RadioGroup
       defaultValue={option}
@@ -24,21 +24,20 @@ export default function OnboardingRadio({ options, option, setOption }: Props) {
     >
       {options.map((item) => (
         <div
-          key={item.title}
+          key={item.label}
           className={cn(
-            'cursor-pointer rounded-xl border-1',
-            item.title === option
+            'cursor-pointer overflow-hidden rounded-xl border-1',
+            item.label === option
               ? 'border-primary bg-primary/10'
               : 'border-gray-50 bg-gray-50 shadow-md',
           )}
         >
-          <RadioGroupItem value={item.title} id={item.title} className="peer sr-only" />
-          <Label
-            htmlFor={item.title}
-            className="flex h-[180px] cursor-pointer flex-col content-center items-center p-4 text-center text-lg font-medium"
-          >
-            <Image src={item.src} alt="" priority={true} width={120} height={109} />
-            <p>{item.title}</p>
+          <RadioGroupItem value={item.label} id={item.label} className="peer sr-only" />
+          <Label htmlFor={item.label} className="block h-[180px] w-full cursor-pointer rounded-xl">
+            <div className="relative h-full w-full">
+              <Image src={item.src} alt="" priority={true} fill className="object-cover" />
+              {item.label === option && <div className="bg-primary/50 absolute inset-0 z-10"></div>}
+            </div>
           </Label>
         </div>
       ))}
