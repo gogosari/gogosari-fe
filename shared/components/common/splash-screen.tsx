@@ -13,14 +13,9 @@ export default function SplashScreen() {
     const hasVisited = sessionStorage.getItem('visited')
 
     if (!hasVisited) {
-      setIsVisible(true)
       sessionStorage.setItem('visited', 'true')
-
-      const timer = setTimeout(() => {
-        setIsVisible(false)
-      }, 1000)
-
-      return () => clearTimeout(timer)
+    } else {
+      setIsVisible(false)
     }
   }, [])
 
@@ -32,7 +27,8 @@ export default function SplashScreen() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      transition={{ duration: 1 }}
+      onAnimationComplete={() => setIsVisible(false)}
       className="absolute inset-0 z-100 h-full w-full"
     >
       <Image
