@@ -12,6 +12,14 @@
   --text-caption2--line-height: 16px;
 
   /* Colors */
+  --color-primary-light: #e6fbf4;
+  --color-primary-normal: #00d492;
+  --color-primary-normal-hover: #00bf83;
+  --color-primary-normal-active: #00aa75;
+  --color-primary-dark: #009f6e;
+  --color-primary-dark-hover: #007f58;
+  --color-primary-dark-active: #005f42;
+  --color-primary-darker: #004a33;
 }
 
 :root {
@@ -21,7 +29,7 @@
   --card-foreground: hsl(0 0% 3.9%);
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(0 0% 3.9%);
-  --primary: hsl(0 0% 9%);
+  --primary: var(--color-primary-normal);
   --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(0 0% 96.1%);
   --secondary-foreground: hsl(0 0% 9%);
