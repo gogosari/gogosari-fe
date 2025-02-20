@@ -1,21 +1,21 @@
 import { motion } from 'motion/react'
-import { FC, SVGProps } from 'react'
+import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
 type ScrollOptionItemProps = {
   onSelect: (optionName: string) => void
   optionName: string
   selected: boolean
-  Emoji?: FC<SVGProps<SVGSVGElement>>
+  emoji: string
 }
 
 export default function ScrollOptionItem({
   onSelect,
   optionName,
   selected,
-  Emoji,
+  emoji,
 }: ScrollOptionItemProps) {
-  const handleSelecteOption = () => {
+  const handleSelectOption = () => {
     onSelect(optionName)
   }
 
@@ -25,8 +25,8 @@ export default function ScrollOptionItem({
   )
 
   return (
-    <motion.li onClick={handleSelecteOption} className={className}>
-      {Emoji && <Emoji className="w-3.5 flex-1" />}
+    <motion.li onClick={handleSelectOption} className={className}>
+      {emoji && <Image src={`/svgs/${emoji}`} alt="" width={15} height={17} />}
       <span className="text-xs font-semibold">{optionName}</span>
     </motion.li>
   )
