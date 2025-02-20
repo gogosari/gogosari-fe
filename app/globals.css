@@ -20,6 +20,10 @@
   --color-primary-dark-hover: #007f58;
   --color-primary-dark-active: #005f42;
   --color-primary-darker: #004a33;
+  --color-fire: #f2674a;
+  --color-skin: #fcded6;
+  --color-indigo-300: #a3b3ff;
+  --color-blue-800: #193cb8;
 }
 
 :root {
