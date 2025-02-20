@@ -1,3 +1,4 @@
+import BottomSection from '@/features/map/components/bottom-section'
 import TopSection from '@/features/map/components/top-section'
 import KakaoMap from '@/shared/components/common/kakao-map'
 
@@ -6,6 +7,7 @@ export default function MainPage() {
     <div className="flex h-full w-full items-center justify-center">
       <TopSection />
       <KakaoMap />
+      <BottomSection />
     </div>
   )
 }
