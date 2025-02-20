@@ -16,7 +16,9 @@ import roadImage1 from '@/public/images/road-1.png'
 import roadImage2 from '@/public/images/road-2.png'
 import roadImage3 from '@/public/images/road-3.png'
 import roadImage4 from '@/public/images/road-4.png'
+import CameraIcon from '@/public/svgs/camera.svg'
 import Header from '@/shared/components/common/header'
+import { Button } from '@/shared/components/ui/button'
 import { Label } from '@/shared/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group'
 import { cn } from '@/shared/lib/utils'
@@ -52,7 +54,7 @@ export default function LocationInfoPage() {
   return (
     <>
       <Header>위치제보</Header>
-      <div className="flex flex-col gap-6 px-5 pb-[80px]">
+      <div className="flex flex-col gap-6 px-5 pb-[20px]">
         <Map center={{ lat: 33.450701, lng: 126.570667 }} className="h-[100px] w-full" level={3} />
         <section>
           <h2 className="mb-1 font-bold">고사리 출현 위치</h2>
@@ -109,6 +111,10 @@ export default function LocationInfoPage() {
             ))}
           </div>
         </section>
+        <section className="border-primary flex h-[147px] items-center justify-center rounded-xl border">
+          <CameraIcon />
+        </section>
+        <Button size="full">등록하기</Button>
       </div>
     </>
   )
