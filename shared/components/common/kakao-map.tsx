@@ -1,5 +1,6 @@
 'use client'
 
+import { env } from 'next-runtime-env'
 import { useEffect, useState } from 'react'
 import { Map } from 'react-kakao-maps-sdk'
 
@@ -7,7 +8,7 @@ export default function KakaoMap() {
   const [scriptLoad, setScriptLoad] = useState<boolean>(false)
 
   useEffect(() => {
-    const apiKey = process.env.NEXT_PUBLIC_KAKAO_KEY
+    const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
     const script: HTMLScriptElement = document.createElement('script')
 
     script.async = true
