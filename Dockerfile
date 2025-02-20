@@ -4,7 +4,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-RUN corepack enable && corepack prepare yarn@stable --activate
+RUN corepack disable && npm uninstall -g yarn && npm install -g yarn@1.22.19
 
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
