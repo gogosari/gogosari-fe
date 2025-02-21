@@ -2,22 +2,12 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import SplashImage from '@/public/images/splash-image.png'
 
 export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true)
-
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem('visited')
-
-    if (!hasVisited) {
-      sessionStorage.setItem('visited', 'true')
-    } else {
-      setIsVisible(false)
-    }
-  }, [])
 
   if (!isVisible) {
     return null
@@ -27,7 +17,7 @@ export default function SplashScreen() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.8 }}
       onAnimationComplete={() => setIsVisible(false)}
       className="absolute inset-0 z-100 h-full w-full"
     >
