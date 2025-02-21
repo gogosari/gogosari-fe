@@ -17,7 +17,7 @@ export default function SplashScreen() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, delay: 1.5 }}
       onAnimationComplete={() => setIsVisible(false)}
       className="absolute inset-0 z-100 h-full w-full"
     >

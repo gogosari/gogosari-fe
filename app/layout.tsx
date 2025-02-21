@@ -3,7 +3,7 @@ import './globals.css'
 
 import localFont from 'next/font/local'
 import Script from 'next/script'
-import { env,PublicEnvScript } from 'next-runtime-env'
+import { env, PublicEnvScript } from 'next-runtime-env'
 import { PropsWithChildren } from 'react'
 
 import { Toaster } from '@/shared/components/ui/sonner'
