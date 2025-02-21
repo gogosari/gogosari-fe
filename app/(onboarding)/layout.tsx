@@ -4,9 +4,9 @@ import SplashScreen from '../../shared/components/common/splash-screen'
 
 export default function OnboardingLayout({ children }: PropsWithChildren) {
   return (
-    <div className="px-[20px]">
+    <>
       <SplashScreen />
-      {children}
-    </div>
+      <div className="px-[20px]">{children}</div>
+    </>
   )
 }
