@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import categoryImage1 from '@/public/images/category-1.png'
@@ -44,11 +45,16 @@ const categoryOptions = [
 export default function LocationInfoPage() {
   const [roadOption, setRoadOption] = useState('')
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const router = useRouter()
 
   const handleClickCategory = (title: string) => {
     setSelectedCategories((prev) =>
       prev.includes(title) ? prev.filter((item) => item !== title) : [...prev, title],
     )
+  }
+
+  const handleClickSubmit = () => {
+    router.push('/')
   }
 
   return (
@@ -118,7 +124,9 @@ export default function LocationInfoPage() {
         <section className="border-primary flex h-[147px] items-center justify-center rounded-xl border">
           <CameraIcon />
         </section>
-        <Button size="full">등록하기</Button>
+        <Button size="full" onClick={handleClickSubmit}>
+          등록하기
+        </Button>
       </div>
     </>
   )

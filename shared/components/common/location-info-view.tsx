@@ -1,4 +1,5 @@
 import { DialogTitle } from '@radix-ui/react-dialog'
+import Link from 'next/link'
 
 import LocationMap from '@/features/map/components/location-map'
 import HeartIcon from '@/public/svgs/heart-outline.svg'
@@ -27,8 +28,8 @@ export default function LocationInfoView() {
             <div className="bg-primary-light flex items-center justify-center rounded-lg py-3 text-base font-medium text-gray-950">
               제주도특별자치도 서귀포시 동류암로 20
             </div>
-            <Button size="lg" className="h-12 cursor-pointer text-base font-semibold">
-              등록하기
+            <Button size="lg" className="h-12 cursor-pointer text-base font-semibold" asChild>
+              <Link href="/location-info">등록하기</Link>
             </Button>
           </div>
         </div>
