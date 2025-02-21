@@ -15,7 +15,7 @@ export default function OnboardingResult() {
 
   const handleClick = () => {
     localStorage.setItem('onboardingCompleted', 'true')
-    router.push('/')
+    router.replace('/')
   }
 
   const { title, subtitle, type, image } = results[resultType as unknown as keyof ResultsType]
