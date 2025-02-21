@@ -9,9 +9,16 @@ import { twMerge } from 'tailwind-merge'
 const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`
 
-type KakaoMapProps = {} & MapProps
+type KakaoMapProps = {
+  center?: { lat: number; lng: number } | { x: number; y: number }
+} & Omit<MapProps, 'center'>
 
-export default function KakaoMap({ className: classNameProp, center, ...rest }: KakaoMapProps) {
+export default function KakaoMap({
+  className: classNameProp,
+  children,
+  center,
+  ...rest
+}: KakaoMapProps) {
   const className = twMerge('h-full w-full', classNameProp)
 
   /** 기본 값: 제주 */
@@ -37,7 +44,9 @@ export default function KakaoMap({ className: classNameProp, center, ...rest }: 
           center={{ lat: location.lat, lng: location.lng, ...center }}
           level={3}
           {...rest}
-        />
+        >
+          {children}
+        </Map>
       )}
     </>
   )
