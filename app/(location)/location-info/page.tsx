@@ -68,7 +68,7 @@ export default function LocationInfoPage() {
         />
         <section>
           <h2 className="mb-1 font-bold">고사리 출현 위치</h2>
-          <div className="border-primary rounded-[8px] border py-2 text-center font-medium">
+          <div className="border-primary/50 rounded-[8px] border py-2 text-center font-medium">
             제주도특별자치도 서귀포시 동류암로 20
           </div>
         </section>
@@ -84,7 +84,9 @@ export default function LocationInfoPage() {
                 key={item.title}
                 className={cn(
                   'cursor-pointer rounded-[6px] border-1',
-                  item.title === roadOption ? 'border-primary bg-primary/10' : 'border-primary',
+                  item.title === roadOption
+                    ? 'border-primary/50 bg-primary/10'
+                    : 'border-primary/50',
                 )}
               >
                 <RadioGroupItem value={item.title} id={item.title} className="peer sr-only" />
@@ -109,8 +111,8 @@ export default function LocationInfoPage() {
                 className={cn(
                   'cursor-pointer rounded-[6px] border-1',
                   selectedCategories.includes(item.title)
-                    ? 'border-primary bg-primary/10'
-                    : 'border-primary',
+                    ? 'border-primary/50 bg-primary/10'
+                    : 'border-primary/50',
                 )}
               >
                 <div className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center text-center text-lg font-medium">
@@ -121,7 +123,7 @@ export default function LocationInfoPage() {
             ))}
           </div>
         </section>
-        <section className="border-primary flex h-[147px] items-center justify-center rounded-xl border">
+        <section className="border-primary/50 flex h-[147px] items-center justify-center rounded-xl border">
           <CameraIcon />
         </section>
         <Button size="full" onClick={handleClickSubmit}>

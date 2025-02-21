@@ -23,7 +23,7 @@ export default function RankingChallengeItem({ challenge }: Props) {
   }
 
   return (
-    <li className="border-primary rounded-xl border bg-white p-3 shadow-md">
+    <li className="border-primary/50 rounded-xl border bg-white p-3 shadow-md">
       <button className="flex w-full items-center justify-between text-left" onClick={handleClick}>
         <div className="flex items-center gap-[7px]">
           <div className="flex h-[80px] w-[80px] items-center justify-center overflow-hidden rounded-[6px]">
