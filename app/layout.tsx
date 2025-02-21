@@ -1,12 +1,16 @@
-import './globals.css'
 import './animation.css'
+import './globals.css'
 
 import localFont from 'next/font/local'
-import { PublicEnvScript } from 'next-runtime-env'
+import Script from 'next/script'
+import { env,PublicEnvScript } from 'next-runtime-env'
 import { PropsWithChildren } from 'react'
 
 import { Toaster } from '@/shared/components/ui/sonner'
 import QueryProvider from '@/shared/query/provider'
+
+const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
+const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`
 
 const pretendard = localFont({
   src: '../public/fonts/PretendardVariable.woff2',
@@ -28,6 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </div>
           <Toaster />
         </QueryProvider>
+        <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
       </body>
     </html>
   )

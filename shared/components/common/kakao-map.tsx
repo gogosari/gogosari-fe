@@ -1,13 +1,8 @@
 'use client'
 
-import Script from 'next/script'
-import { env } from 'next-runtime-env'
 import { useEffect, useState } from 'react'
 import { Map, MapProps } from 'react-kakao-maps-sdk'
 import { twMerge } from 'tailwind-merge'
-
-const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
-const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`
 
 type KakaoMapProps = {
   center?: { lat: number; lng: number } | { x: number; y: number }
@@ -35,19 +30,18 @@ export default function KakaoMap({
     }
   }, [])
 
+  if (!location) {
+    return null
+  }
+
   return (
-    <>
-      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
-      {location && (
-        <Map
-          className={className}
-          center={{ lat: location.lat, lng: location.lng, ...center }}
-          level={3}
-          {...rest}
-        >
-          {children}
-        </Map>
-      )}
-    </>
+    <Map
+      className={className}
+      center={{ lat: location.lat, lng: location.lng, ...center }}
+      level={3}
+      {...rest}
+    >
+      {children}
+    </Map>
   )
 }
