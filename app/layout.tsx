@@ -1,6 +1,7 @@
 import './animation.css'
 import './globals.css'
 
+import { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Script from 'next/script'
 import { env, PublicEnvScript } from 'next-runtime-env'
@@ -19,9 +20,32 @@ const pretendard = localFont({
   preload: true,
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '고고사리',
-  description: '우리 다 같이 캐러갈깡?',
+  description:
+    '실시간 지도 기반으로 최적의 고사리 채집 스팟을 제공하여, 누구나 쉽게 고사리 채집을 즐길 수 있도록 도와주는 서비스입니다.',
+  openGraph: {
+    title: '고고사리',
+    description:
+      '실시간 지도 기반으로 최적의 고사리 채집 스팟을 제공하여, 누구나 쉽게 고사리 채집을 즐길 수 있도록 도와주는 서비스입니다.',
+    images: [
+      {
+        url: '/images/main-thumbnail.png',
+        width: 856,
+        height: 481,
+        alt: '메인 썸네일 이미지',
+      },
+    ],
+    type: 'website',
+    siteName: '고고사리',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '고고사리',
+    description:
+      '실시간 지도 기반으로 최적의 고사리 채집 스팟을 제공하여, 누구나 쉽게 고사리 채집을 즐길 수 있도록 도와주는 서비스입니다.',
+    images: ['/images/main-thumbnail.png'],
+  },
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
