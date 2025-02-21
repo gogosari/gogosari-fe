@@ -19,6 +19,11 @@ const pretendard = localFont({
   preload: true,
 })
 
+export const metadata = {
+  title: '고고사리',
+  description: '우리 다 같이 캐러갈깡?',
+}
+
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko" className={pretendard.variable}>
