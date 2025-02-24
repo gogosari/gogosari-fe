@@ -13,6 +13,7 @@ import categoryImage5 from '@/public/images/category-5.png'
 import categoryImage6 from '@/public/images/category-6.png'
 import categoryImage7 from '@/public/images/category-7.png'
 import categoryImage8 from '@/public/images/category-8.png'
+import GosariImage from '@/public/images/gosari-long.png'
 import roadImage1 from '@/public/images/road-1.png'
 import roadImage2 from '@/public/images/road-2.png'
 import roadImage3 from '@/public/images/road-3.png'
@@ -71,7 +72,7 @@ export default function LocationInfoPage() {
         </KakaoMap>
         <section>
           <h2 className="mb-1 font-bold">고사리 출현 위치</h2>
-          <div className="flex h-12 items-center justify-center rounded-[8px] border-[0.5px] border-gray-300 bg-slate-50 py-2 font-medium">
+          <div className="flex h-12 items-center justify-center rounded-[8px] border-[0.5px] border-gray-300 bg-slate-50 py-2 font-medium text-gray-500">
             제주도특별자치도 서귀포시 동류암로 20
           </div>
         </section>
@@ -86,7 +87,7 @@ export default function LocationInfoPage() {
               <div
                 key={item.title}
                 className={cn(
-                  'cursor-pointer rounded-[6px] border-[0.5px] border-gray-300 bg-white',
+                  'cursor-pointer rounded-[6px] border-[0.5px] border-gray-300 bg-white text-gray-500',
                   item.title === roadOption && 'border-primary bg-primary/12',
                 )}
               >
@@ -114,7 +115,7 @@ export default function LocationInfoPage() {
                   selectedCategories.includes(item.title) && 'border-primary bg-primary/12',
                 )}
               >
-                <div className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center gap-0.5 text-center text-lg font-medium">
+                <div className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center gap-0.5 text-center text-lg font-medium text-gray-500">
                   <Image src={item.src} alt="" priority width={32} height={32} />
                   <p className="text-xs leading-4 font-medium">{item.title}</p>
                 </div>
@@ -122,8 +123,9 @@ export default function LocationInfoPage() {
             ))}
           </div>
         </section>
-        <section className="flex h-[147px] items-center justify-center rounded-xl border border-gray-300">
+        <section className="flex h-[147px] items-center justify-center overflow-hidden rounded-xl border border-gray-300">
           <CameraIcon />
+          <Image src={GosariImage} alt="고사리" />
         </section>
         <Button size="full" onClick={handleClickSubmit}>
           등록하기
