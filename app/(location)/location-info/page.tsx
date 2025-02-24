@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { MapMarker } from 'react-kakao-maps-sdk'
 
 import categoryImage1 from '@/public/images/category-1.png'
 import categoryImage2 from '@/public/images/category-2.png'
@@ -58,17 +59,19 @@ export default function LocationInfoPage() {
   }
 
   return (
-    <>
-      <Header>위치제보</Header>
+    <div className="bg-[#FCFDFF]">
+      <Header hasBackButton={true}>위치제보</Header>
       <div className="flex flex-col gap-6 px-5 pb-[20px]">
-        <KakaoMap
-          center={{ lat: 33.450701, lng: 126.570667 }}
-          className="h-[100px] w-full"
-          level={3}
-        />
+        <KakaoMap center={{ lat: 33.4509, lng: 126.570669 }} className="h-[100px] w-full" level={3}>
+          <MapMarker
+            position={{ lat: 33.450701, lng: 126.570667 }}
+            image={{ src: '/images/marker.png', size: { width: 58, height: 69 } }}
+            title="스페이스닷원"
+          />
+        </KakaoMap>
         <section>
           <h2 className="mb-1 font-bold">고사리 출현 위치</h2>
-          <div className="border-primary/50 rounded-[8px] border py-2 text-center font-medium">
+          <div className="flex h-12 items-center justify-center rounded-[8px] border-[0.5px] border-gray-300 bg-slate-50 py-2 font-medium">
             제주도특별자치도 서귀포시 동류암로 20
           </div>
         </section>
@@ -83,19 +86,17 @@ export default function LocationInfoPage() {
               <div
                 key={item.title}
                 className={cn(
-                  'cursor-pointer rounded-[6px] border-1',
-                  item.title === roadOption
-                    ? 'border-primary/50 bg-primary/10'
-                    : 'border-primary/50',
+                  'cursor-pointer rounded-[6px] border-[0.5px] border-gray-300 bg-white',
+                  item.title === roadOption && 'border-primary bg-primary/12',
                 )}
               >
                 <RadioGroupItem value={item.title} id={item.title} className="peer sr-only" />
                 <Label
                   htmlFor={item.title}
-                  className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center text-center text-lg font-medium"
+                  className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center gap-0.5 text-center text-lg font-medium"
                 >
                   <Image src={item.src} alt="" priority={true} width={32} height={32} />
-                  <p className="text-base">{item.title}</p>
+                  <p className="text-xs leading-4 font-medium">{item.title}</p>
                 </Label>
               </div>
             ))}
@@ -109,27 +110,25 @@ export default function LocationInfoPage() {
                 key={item.title}
                 onClick={() => handleClickCategory(item.title)}
                 className={cn(
-                  'cursor-pointer rounded-[6px] border-1',
-                  selectedCategories.includes(item.title)
-                    ? 'border-primary/50 bg-primary/10'
-                    : 'border-primary/50',
+                  'cursor-pointer rounded-[6px] border-[0.5px] border-gray-300 bg-white',
+                  selectedCategories.includes(item.title) && 'border-primary bg-primary/12',
                 )}
               >
-                <div className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center text-center text-lg font-medium">
+                <div className="flex h-[84px] cursor-pointer flex-col content-center items-center justify-center gap-0.5 text-center text-lg font-medium">
                   <Image src={item.src} alt="" priority width={32} height={32} />
-                  <p className="text-base">{item.title}</p>
+                  <p className="text-xs leading-4 font-medium">{item.title}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
-        <section className="border-primary/50 flex h-[147px] items-center justify-center rounded-xl border">
+        <section className="flex h-[147px] items-center justify-center rounded-xl border border-gray-300">
           <CameraIcon />
         </section>
         <Button size="full" onClick={handleClickSubmit}>
           등록하기
         </Button>
       </div>
-    </>
+    </div>
   )
 }
