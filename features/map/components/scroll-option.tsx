@@ -12,7 +12,7 @@ export default function ScrollOption() {
 
   return (
     <div className="absolute top-[calc(100%+12px)] mx-auto h-full w-full max-w-[600px] overflow-hidden">
-      <ScrollLinked>
+      <ScrollLinked className="gap-1">
         {data?.map(({ id, name, code }) => (
           <ScrollOptionItem
             key={id}
