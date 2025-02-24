@@ -5,9 +5,9 @@ import MarkerIcon from '@/public/svgs/marker.svg'
 
 export default function GosariInfoCard() {
   return (
-    <div className="flex w-full justify-between rounded-[20px] bg-white px-[11px] py-[15px]">
+    <div className="flex w-full gap-2.5 rounded-[20px] bg-white px-[11px] py-[15px]">
       <Image className="rounded-xl" src={gosariImage} alt="dummy-gosari" width={150} height={150} />
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between py-1">
         <div className="flex flex-col gap-0.5 text-gray-950">
           <div className="flex items-center gap-1.5 text-base font-bold">
             <span>고사리 위치</span>
