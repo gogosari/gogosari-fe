@@ -3,7 +3,6 @@
 import * as SheetPrimitive from '@radix-ui/react-dialog'
 import * as React from 'react'
 
-import CloseIcon from '@/public/svgs/close.svg'
 import { cn } from '@/shared/lib/utils'
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
@@ -65,14 +64,6 @@ function SheetContent({
         )}
         {...props}
       >
-        <div className="flex p-4">
-          <span className="flex-1 pl-6 text-center text-base font-bold text-gray-950">
-            위치제보
-          </span>
-          <SheetPrimitive.Close className="ring-offset-background data-[state=open]:bg-secondary cursor-pointer rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
-            <CloseIcon />
-          </SheetPrimitive.Close>
-        </div>
         {children}
       </SheetPrimitive.Content>
     </SheetPortal>
@@ -80,13 +71,7 @@ function SheetContent({
 }
 
 function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="sheet-header"
-      className={cn('flex flex-col gap-1.5 p-4', className)}
-      {...props}
-    />
-  )
+  return <div data-slot="sheet-header" className={cn('flex flex-col', className)} {...props} />
 }
 
 function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
