@@ -20,14 +20,14 @@ export default function ScrollOptionItem({
   }
 
   const className = twMerge(
-    'flex h-8 cursor-pointer items-center justify-center gap-0.5 rounded-full bg-white px-[18px] py-2 whitespace-nowrap shadow',
+    'flex h-[33px] cursor-pointer items-center justify-center gap-0.5 rounded-full bg-white px-[18px] whitespace-nowrap shadow',
     selected ? 'bg-primary-normal text-white' : 'bg-white text-black',
   )
 
   return (
     <motion.li onClick={handleSelectOption} className={className}>
       {emoji && <Image src={`/svgs/${emoji}`} alt="" width={15} height={17} />}
-      <span className="text-xs font-semibold">{optionName}</span>
+      <span className="text-xs leading-4 font-semibold">{optionName}</span>
     </motion.li>
   )
 }
