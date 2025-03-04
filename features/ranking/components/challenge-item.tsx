@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 
 import leafImage from '@/public/images/challenge-leaf.png'
 import UserIcon from '@/public/svgs/challenge-user.svg'
-import ChevronRightIcon from '@/public/svgs/chevron-right-big.svg'
+import ChevronRightIcon from '@/public/svgs/chevron-right-charcoal.svg'
 import { Progress } from '@/shared/components/ui/progress'
 import { TOAST_WAITING } from '@/shared/constants/toast'
 
@@ -23,8 +23,8 @@ export default function RankingChallengeItem({ challenge }: Props) {
   }
 
   return (
-    <li className="border-primary/50 rounded-xl border bg-white p-3 shadow-md">
-      <button className="flex w-full items-center justify-between text-left" onClick={handleClick}>
+    <li className="border-charcoal-100 rounded-xl border bg-white p-3 shadow-md">
+      <button className="flex w-full items-start justify-between text-left" onClick={handleClick}>
         <div className="flex items-center gap-[7px]">
           <div className="flex h-[80px] w-[80px] items-center justify-center overflow-hidden rounded-[6px]">
             <Image src={image} alt="가방" width={80} height={80} />
@@ -32,7 +32,7 @@ export default function RankingChallengeItem({ challenge }: Props) {
           <div>
             <p className="text-sm font-medium">{subtitle}</p>
             <h3 className="text-lg font-semibold">{title}</h3>
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5 text-xs text-gray-500">
               <span className="flex items-center">
                 <UserIcon /> {users}
               </span>
@@ -43,7 +43,7 @@ export default function RankingChallengeItem({ challenge }: Props) {
             </div>
           </div>
         </div>
-        <ChevronRightIcon />
+        <ChevronRightIcon className="mt-1" />
       </button>
       <Progress value={percent} className="mt-[5px]" />
     </li>
