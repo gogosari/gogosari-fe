@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { MapMarker } from 'react-kakao-maps-sdk'
+import { toast } from 'sonner'
 
 import categoryImage1 from '@/public/images/category-1.png'
 import categoryImage2 from '@/public/images/category-2.png'
@@ -23,6 +24,7 @@ import KakaoMap from '@/shared/components/common/kakao-map'
 import { Button } from '@/shared/components/ui/button'
 import { Label } from '@/shared/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/shared/components/ui/radio-group'
+import { TOAST_SUCCESS } from '@/shared/constants/toast'
 import { cn } from '@/shared/lib/utils'
 
 const roadOptions = [
@@ -55,6 +57,7 @@ export default function LocationInfoPage() {
   }
 
   const handleClickSubmit = () => {
+    toast(TOAST_SUCCESS)
     router.push('/')
   }
 
