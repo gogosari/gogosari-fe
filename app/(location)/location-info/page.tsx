@@ -18,7 +18,6 @@ import roadImage1 from '@/public/images/road-1.png'
 import roadImage2 from '@/public/images/road-2.png'
 import roadImage3 from '@/public/images/road-3.png'
 import roadImage4 from '@/public/images/road-4.png'
-import CameraIcon from '@/public/svgs/camera.svg'
 import Header from '@/shared/components/common/header'
 import KakaoMap from '@/shared/components/common/kakao-map'
 import { Button } from '@/shared/components/ui/button'
@@ -123,9 +122,8 @@ export default function LocationInfoPage() {
             ))}
           </div>
         </section>
-        <section className="flex h-[147px] items-center justify-center overflow-hidden rounded-xl border border-gray-300">
-          <CameraIcon />
-          <Image src={GosariImage} alt="고사리" />
+        <section className="relative flex h-[147px] items-center justify-center overflow-hidden rounded-xl border border-gray-300">
+          <Image src={GosariImage} alt="고사리" fill className="object-cover" />
         </section>
         <Button size="full" onClick={handleClickSubmit}>
           등록하기
