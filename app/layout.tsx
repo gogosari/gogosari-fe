@@ -10,8 +10,8 @@ import { PropsWithChildren } from 'react'
 import { Toaster } from '@/shared/components/ui/sonner'
 import QueryProvider from '@/shared/query/provider'
 
-const apiKey = env('NEXT_PUBLIC_KAKAO_KEY')
-const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&autoload=false`
+const kakaoApiKey = env('NEXT_PUBLIC_KAKAO_KEY')
+const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoApiKey}&autoload=false`
 
 const pretendard = localFont({
   src: '../public/fonts/PretendardVariable.woff2',
@@ -21,31 +21,34 @@ const pretendard = localFont({
   preload: true,
 })
 
-export const metadata: Metadata = {
+function getMetadataBase(): Metadata['metadataBase'] {
+  const siteUrl = env('NEXT_PUBLIC_SITE_URL') || 'http://localhost:3000'
+  return new URL(siteUrl)
+}
+
+const METADATA = {
   title: '고고사리',
   description:
     '실시간 지도 기반으로 최적의 고사리 채집 스팟을 제공하여, 누구나 쉽게 고사리 채집을 즐길 수 있도록 도와주는 서비스입니다.',
+  thumbnailUrl: '/images/main-thumbnail.png',
+}
+
+export const metadata: Metadata = {
+  metadataBase: getMetadataBase(),
+  title: METADATA.title,
+  description: METADATA.description,
   openGraph: {
-    title: '고고사리',
-    description:
-      '실시간 지도 기반으로 최적의 고사리 채집 스팟을 제공하여, 누구나 쉽게 고사리 채집을 즐길 수 있도록 도와주는 서비스입니다.',
-    images: [
-      {
-        url: '/images/main-thumbnail.png',
-        width: 856,
-        height: 481,
-        alt: '메인 썸네일 이미지',
-      },
-    ],
+    title: METADATA.title,
+    description: METADATA.description,
+    images: [{ url: METADATA.thumbnailUrl, alt: 'Main Thumbnail' }],
     type: 'website',
-    siteName: '고고사리',
+    siteName: METADATA.title,
   },
   twitter: {
     card: 'summary_large_image',
-    title: '고고사리',
-    description:
-      '실시간 지도 기반으로 최적의 고사리 채집 스팟을 제공하여, 누구나 쉽게 고사리 채집을 즐길 수 있도록 도와주는 서비스입니다.',
-    images: ['/images/main-thumbnail.png'],
+    title: METADATA.title,
+    description: METADATA.description,
+    images: [METADATA.thumbnailUrl],
   },
 }
 
