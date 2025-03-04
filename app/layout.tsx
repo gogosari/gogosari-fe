@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     description: METADATA.description,
     images: [METADATA.thumbnailUrl],
   },
+  other: {
+    'format-detection': 'telephone=no, email=no, address=no, date=no',
+  },
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
