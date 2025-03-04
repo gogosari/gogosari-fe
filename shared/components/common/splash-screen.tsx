@@ -26,7 +26,7 @@ export default function SplashScreen() {
         alt="splash-image"
         fill
         objectFit="cover"
-        objectPosition="center"
+        objectPosition="bottom"
         priority
       />
     </motion.div>
