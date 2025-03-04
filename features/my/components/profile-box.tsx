@@ -1,8 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import { toast } from 'sonner'
 
-import ProfileIcon from '@/public/svgs/profile.svg'
+import profileImage from '@/public/images/profile.png'
 import { TOAST_WAITING } from '@/shared/constants/toast'
 
 export default function ProfileBox() {
@@ -13,7 +14,7 @@ export default function ProfileBox() {
   return (
     <div className="flex h-[95px] w-full items-center justify-between px-[15px]">
       <div className="flex items-center gap-2.5">
-        <ProfileIcon />
+        <Image src={profileImage} alt="profile" width={50} height={50} className="rounded-full" />
         <div className="flex flex-col">
           <span className="text-sm leading-5 font-normal">고사리님</span>
           <span className="text-lg leading-7 font-semibold text-gray-950">환영해요!</span>
